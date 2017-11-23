@@ -1,0 +1,26 @@
+{
+  "name": "sir-model",
+  "version": "1.0.0",
+  "description": "Run an SIR model.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c-lack/sir-model.git"
+  },
+  "keywords": [
+    "SIR",
+    "model"
+  ],
+  "author": "Cameron P. Lack <c.lack@warwick.ac.uk> (http://warwick.ac.uk/clack)",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/c-lack/sir-model/issues"
+  },
+  "homepage": "https://github.com/c-lack/sir-model#readme",
+  "dependencies": {
+    "numeric": "1.2.6"
+  }
+}
