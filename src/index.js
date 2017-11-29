@@ -1,4 +1,4 @@
-var odex = require('odex')
+var numeric = require('numeric')
 
 var sirModel = {
 
@@ -8,10 +8,10 @@ var sirModel = {
 
 	config: {
 		N: 100,
+		I0: 1,
 		beta: 0.06,
 		gamma: 1,
 		T: 10,
-		delta: 0.1,
 	},
 
 	/*
@@ -26,24 +26,33 @@ var sirModel = {
 		this.config.gamma = gamma;
 	},
 
+	set_N: function(N) {
+		this.config.N = N;
+	},
+
+	set_T: function(T) {
+		this.config.T = T;
+	},
+
+	set_I0: function(I0) {
+		this.config.I0 = I0;
+	},
+
 	dx_dt: function(beta, gamma) {
 		return function(t,x) {
-			return [
+			var out = [
 				-beta*x[0]*x[1],
 				beta*x[0]*x[1] - gamma*x[1],
 				gamma*x[1]
 			];
+			return out;
 		}
 	},
 
 	// TODO use numeric package to solve ODE
 	solve: function() {
-		var s = new odex.Solver(3);
-
-		output = [];
-
-		s.solve(this.dx_dt(this.beta,this.gamma), 0, [this.N-1,1,0], this.T);
-		return s
+		sol = numeric.dopri(0,this.config.T,[this.config.N - this.config.I0, this.config.I0, 0],this.dx_dt(this.config.beta,this.config.gamma));
+		return sol.y;
 	},
 }
 
