@@ -1,5 +1,10 @@
 var numeric = require('numeric')
 
+/*
+This is an example library for defining a simple SIR model, with the ability to set parameters, 
+and uses the numeric.js package to solve the ODE with a Dormand-Prince-Runge-Kutta integrator with
+adaptive time stepping. */
+
 var sirModel = {
 
 	/*
