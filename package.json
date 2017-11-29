@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/c-lack/sir-model#readme",
   "dependencies": {
-    "numeric": "1.2.6"
+    "numeric": "1.2.6",
+    "ode45-cash-karp": "1.1.0",
+    "odex": "2.0.4"
   }
 }
