@@ -57,7 +57,7 @@ var sirModel = {
 	// TODO use numeric package to solve ODE
 	solve: function() {
 		sol = numeric.dopri(0,this.config.T,[this.config.N - this.config.I0, this.config.I0, 0],this.dx_dt(this.config.beta,this.config.gamma));
-		return sol.y;
+		return {t: sol.x, x: sol.y};
 	},
 }
 
